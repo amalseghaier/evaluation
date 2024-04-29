@@ -1,0 +1,81 @@
+/* Style pour la page Liste Question */
+
+/* Style pour le titre de la carte */
+.card .card-header .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Style pour le bouton Ajouter une question */
+.card .card-header .download-grp button {
+    margin-top: 10px;
+}
+
+/* Style pour les cellules du tableau */
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+/* Style pour les boutons d'action dans les lignes du tableau */
+.table .btn {
+    margin-right: 5px;
+}
+
+/* Style pour les boutons de suppression */
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Style pour les boutons d'édition */
+.btn-edit {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+/* Style pour les boutons de vue */
+.btn-view {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+/* Style pour les boutons flottants à droite */
+.text-end.float-end {
+    float: right;
+}
+
+/* Style pour les cases à cocher/radio */
+.checkbox,
+.radio {
+    margin-bottom: 10px;
+}
+
+/* Style pour la bordure du tableau */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}

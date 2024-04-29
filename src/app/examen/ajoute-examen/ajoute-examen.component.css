@@ -1,0 +1,19 @@
+/* Style pour le formulaire d'ajout d'examen */
+.col-lg-12 {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Ajout de marge à gauche pour le bouton Valider */
+button[type="submit"] {
+    margin-left: 15px;
+}
+
+  

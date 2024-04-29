@@ -1,0 +1,32 @@
+.card {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .page-title {
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb {
+    margin-bottom: 20px;
+  }
+  
+  .question-container {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    cursor: pointer;
+  }
+  
+  /* Ajoutez d'autres styles selon vos besoins */
+  

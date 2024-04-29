@@ -1,0 +1,64 @@
+<app-header></app-header>
+<div class="col-lg-12">
+  <div class="card mb-0">
+    <div class="card-body">
+      <div class="col">
+        <h3 class="page-title">Ajoute Question</h3>
+        <div class="col">
+          <ul class="breadcrumb justify-content-end">
+            <li class="breadcrumb-item"><a routerLink="/question">Question</a></li>
+            <li class="breadcrumb-item active">Ajoute Question</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulaire de question -->
+  <div class="question-container">
+    <form #f="ngForm" (submit)="ajoutQuestion(f)">
+      <div class="form-group">
+        <label for="titre">id_examen :</label>
+        <input type="text" class="form-control" id="id_examen" required [(ngModel)]="question.id_examen" name="id_examen">
+      </div>
+      <div class="form-group">
+        <label for="titre">Titre :</label>
+        <input type="text" class="form-control" id="titre"required [(ngModel)]="question.titre" name="titre">
+      </div>
+      <div class="form-group">
+        <label for="type">Type :</label>
+        <select class="form-control" id="type"required [(ngModel)]="question.type" name="type">
+          <option value="choix_unique">Choix unique</option>
+          <option value="choix_multiple">Choix multiple</option>
+          <option value="vrai_faux">Vrai/Faux</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="question.type === 'choix_unique' || question.type === 'choix_multiple' || question.type === 'vrai_faux'">
+        <label>Options :</label>
+        <div *ngFor="let option of question.options; let i = index" class="input-group mb-2">
+          <input type="text" class="form-control" name="options" [(ngModel)]="option.value">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="removeOption(i)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-success mt-2" (click)="addOption()">Ajouter une option</button>
+      </div>
+      
+      <div class="form-group">
+        <label for="reponseCorrecte">Réponse Correcte :</label>
+        <input type="text" class="form-control" id="reponseCorrecte"required [(ngModel)]="question.reponse_correcte" name="reponseCorrecte">
+      </div>
+      <div class="form-group">
+        <label for="number">Point :</label>
+        <input type="text" class="form-control" id="point"required [(ngModel)]="question.point" name="point">
+      </div>
+      
+
+      <!-- Bouton pour soumettre toutes les questions -->
+      <button type="submit" class="btn btn-success mt-2" [disabled]="f.invalid">Ajoute question</button>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

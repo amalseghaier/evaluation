@@ -1,0 +1,93 @@
+<app-header></app-header>
+<div class="col-lg-12">
+    <div class="card mb-0">
+        <div class="card-body">
+            <div class="col">
+                <h3 class="page-title"> Ajoute Examen</h3>
+            
+            <div class="col">
+                <ul class="breadcrumb justify-content-end">
+                    <li class="breadcrumb-item"><a routerLink="/examen">Examen</a></li>
+                    <li class="breadcrumb-item active">Ajoute Examen</li>
+                </ul>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+  
+        
+    <!-- Formulaire d'ajout d'examen -->
+    <div class="card">
+        <div class="card-body">
+            <form  #f="ngForm" (ngSubmit)="add(f)">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="titre">Titre de l'examen :</label>
+                            <input type="text" class="form-control" id="titre" placeholder="Titre de l'examen" required [(ngModel)]="examen.titre" name="titre">
+                        </div>
+                        <!-- <div class="alert alert-danger" ngIf="titre.erros?.required && titre.touched">
+                            titre is required
+                        </div> -->
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="description">Description de l'examen :</label>
+                            <textarea class="form-control" id="description" rows="3" placeholder="Description de l'examen" rrequired [(ngModel)]="examen.description" name="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="date">Date de début :</label>
+                            <input type="datetime-local" class="form-control" id="date" value="2024-04-25T08:00" required [(ngModel)]="examen.date_debut" name="date_debut">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="date">Date de fin :</label>
+                            <input type="datetime-local" class="form-control" id="date" value="2024-04-25T08:00" required [(ngModel)]="examen.date_fin" name="date_fin">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="duree">Durée (en minutes) :</label>
+                            <input type="number" class="form-control" id="duree" min="1" value="60" required [(ngModel)]="examen.duree" name="duree">
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label for="typeExamen">Type d'examen :</label>
+                            <select class="form-control" id="typeExamen" required [(ngModel)]="examen.type_examen" name="type_examen">
+                                <option value="controle">controle</option>
+                                <option value="synthese">synthese</option>
+                                <!-- Ajouter d'autres types d'examen -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Heure </label>
+                            <input type="time" class="form-control" id="timer-countup" required [(ngModel)]="examen.heure" name="heure">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="form-group">
+                            <label>Classe</label>
+                            <select class="form-control" id="id_classe" required [(ngModel)]="selectedClasse" name="id_classe">
+                                <option *ngFor="let classe of classes" [ngValue]="classe.id">{{ classe.nom }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <button  [disabled]="f.invalid" class="btn btn-primary">Ajoute Examen</button>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

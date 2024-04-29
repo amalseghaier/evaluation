@@ -1,0 +1,135 @@
+<app-header></app-header>
+                <div class="student-personals-grp">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <div class="col">
+                                <h3 class="page-title">Examen</h3>
+                            
+                            <div class="col">
+                                <ul class="breadcrumb justify-content-end">
+                                    <li class="breadcrumb-item"><a routerLink="/ajouteexamen">Ajoute examen</a></li>
+                                    <li class="breadcrumb-item active">Examen</li>
+                                </ul>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card card-table">
+                                <div class="card-body">
+                                      <div class="table-responsive">
+                                        <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                                            <div class="dataTables_length" id="DataTables_Table_0_length"><label>Show
+                                                    <select name="DataTables_Table_0_length"
+                                                        aria-controls="DataTables_Table_0" class="">
+                                                        <option value="10">10</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                        <option value="100">100</option>
+                                                    </select> entries</label></div>
+                                            <table
+                                                class="table border-0 star-student table-hover table-center mb-0 datatable table-striped dataTable no-footer"
+                                                id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+                                                <thead class="student-thread">
+                                                    <tr>
+                                                        <th class="sorting sorting_asc" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-sort="ascending"
+                                                            aria-label="Exam Name: activate to sort column descending"
+                                                            style="width: 143.738px;">titre</th>
+                                                        
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-label="Subject: activate to sort column ascending"
+                                                            style="width: 127.9px;">description</th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-label="Start Time: activate to sort column ascending"
+                                                            style="width: 123.575px;">date_debut</th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-label="End Time: activate to sort column ascending"
+                                                            style="width: 111.775px;">date_debut</th>
+                                                        <th class="sorting" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-label="Date: activate to sort column ascending"
+                                                            style="width: 122.812px;">Heure</th>
+                                                            <th class="sorting" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-label="Subject: activate to sort column ascending"
+                                                            style="width: 127.9px;">typeExamen</th>
+                                                            <th class="sorting" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-label="Date: activate to sort column ascending"
+                                                            style="width: 122.812px;">duree</th>
+                                                            <th class="sorting" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-label="Class: activate to sort column ascending"
+                                                            style="width: 73.675px;">Classe</th>
+                                                        <th class="text-end sorting" tabindex="0"
+                                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                                            aria-label="Action: activate to sort column ascending"
+                                                            style="width: 124.325px;">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="odd" *ngFor="let item of dataArray">
+                                                        <td class="sorting_1">
+                                                            <h2>
+                                                                <a>{{item.titre}}</a>
+                                                            </h2>
+                                                        </td>
+                                                        <td>{{item.description}}</td>
+                                                        <td>{{item.date_debut}}</td>
+                                                        <td>{{item.date_fin}}</td>
+                                                        <td>{{item.heure}}</td>
+                                                        <td>{{item.type_examen}}</td>
+                                                        <td>{{item.duree}}</td>
+                                                        <td>{{item.id_classe}}</td>
+                                                        <td class="text-end">
+                                                            <div class="actions">
+                                                                <a href="" class="btn btn-sm bg-success-light me-2">
+                                                                    <i class="feather-eye"></i>
+                                                                </a>
+                                                                <a href="edit-exam.html" class="btn btn-sm bg-danger-light">
+                                                                    <i class="feather-edit"></i>
+                                                                </a>
+                                                                <a class="btn btn-sm btn-white text-danger" href="#" data-bs-toggle="modal" data-bs-target="#delete_paid">
+                                                                    <i class="far fa-trash-alt me-1"></i>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                        
+                                                        
+                                                    </tr>
+                                                  
+                                                    
+                                                   
+                                                    
+                                                </tbody>
+                                            </table>
+                                            <div class="dataTables_info" id="DataTables_Table_0_info" role="status"
+                                                aria-live="polite">Showing 1 to 8 of 8 entries</div>
+                                            <div class="dataTables_paginate paging_simple_numbers"
+                                                id="DataTables_Table_0_paginate"><a
+                                                    class="paginate_button previous disabled"
+                                                    aria-controls="DataTables_Table_0" aria-disabled="true" role="link"
+                                                    data-dt-idx="previous" tabindex="-1"
+                                                    id="DataTables_Table_0_previous">Previous</a><span><a
+                                                        class="paginate_button current"
+                                                        aria-controls="DataTables_Table_0" role="link"
+                                                        aria-current="page" data-dt-idx="0" tabindex="0">1</a></span><a
+                                                    class="paginate_button next disabled"
+                                                    aria-controls="DataTables_Table_0" aria-disabled="true" role="link"
+                                                    data-dt-idx="next" tabindex="-1"
+                                                        id="DataTables_Table_0_next">Next</a></div>
+                            </div>
+                        </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
