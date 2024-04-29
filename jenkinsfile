@@ -14,63 +14,37 @@ pipeline {
                 }
             }
         }
-    
-       // stage('Install Node.js') {
-           
-       //      steps {
-       //          script {
-       //              // Utiliser le plugin NodeJS pour installer Node.js
-       //              def nodejsInstallation = tool 'node'
-       //              env.PATH = "${nodejsInstallation}/bin:${env.PATH}"
-                    
-       //              // Vérifier si la version de Node.js est correcte
-       //              bat "node -v"
-       //          }
-       //      }
-       //  }
-        //   stage('Install Dependencies') {
-        //     steps {
-        //         // Installer les dépendances Node.js
-        //         bat 'npm install'
-        //     }
-        // }
 
-        // stage('Build') {
-        //     steps {
-        //         // Construire l'application Angular 
-        //         bat 'npm run build '
-        //     }
-        // }
-        //      stage('Archive Artifacts') {
-        //     steps {
-        //         // Archiver les fichiers construits pour les publier comme artefacts
-        //         archiveArtifacts 'dist/**/*'
-        //     }
-        // }
-         stage('Build and Rename Docker Image') {
-    steps {
-        // Utiliser un conteneur Docker pour construire et renommer l'image
-        script {
-            // Construire l'image Docker (ajustez la commande selon vos besoins)
-            bat 'docker build -t evaluation_%BUILD_ID% .'
-
-            // Renommer l'image Docker
-            bat "docker tag evaluation__%BUILD_ID% amalseghaier/evaluation__%BUILD_ID%"
-        }
-    }
-}
-
-          stage('Build and Run Docker Container') {
+        stage('Build and Rename Docker Image') {
             steps {
-                // Utiliser un conteneur Docker pour construire et exécuter le conteneur
+                // Utiliser un conteneur Docker pour construire et renommer l'image
                 script {
+                    // Construire l'image Docker (ajustez la commande selon vos besoins)
+                    bat 'docker build -t amalseghaier/exam:%BUILD_ID% .'
 
-                    // Exécuter le conteneur Docker
-                    
-                    bat "docker run  -d --name evaluation amalseghaier/evaluation_${BUILD_ID}"
+                    // Renommer l'image Docker
+                    bat "docker tag amalseghaier/exam:%BUILD_ID% amalseghaier/exam:latest"
                 }
             }
         }
-        
+
+        stage('Push Docker Image') {
+            steps {
+                // Pousser l'image Docker vers Docker Hub
+                script {
+                    bat 'docker push amalseghaier/exam:latest'
+                }
+            }
+        }
+
+        stage('Build and Run Docker Container') {
+            steps {
+                // Utiliser un conteneur Docker pour construire et exécuter le conteneur
+                script {
+                    // Exécuter le conteneur Docker
+                    bat "docker run -d -p 80:86 --name  amalseghaier/exam:latest"
+                }
+            }
+        }
     }
 }
