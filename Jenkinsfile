@@ -32,7 +32,7 @@ pipeline {
             steps {
                 // Pousser l'image Docker vers Docker Hub
                 script {
-                    bat 'docker push amalseghaier/exam:latest'
+                    bat 'docker push amalseghaier/exam'
                 }
             }
         }
