@@ -28,14 +28,17 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image') {
-            steps {
-                // Pousser l'image Docker vers Docker Hub
-                script {
-                    bat 'docker push amalseghaier/exam:latest'
-                }
+      stage('Push Docker Image') {
+    steps {
+        // Connexion à Docker Hub
+        script {
+            docker.withRegistry('https://index.docker.io/v1/', 'DockerHubCredentials') {
+                bat 'docker push amalseghaier/exam:latest'
             }
         }
+    }
+}
+
 
         stage('Build and Run Docker Container') {
             steps {
