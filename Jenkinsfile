@@ -29,16 +29,16 @@ pipeline {
         }
 
       stage('Push Docker Image') {
-    steps {
-        // Connexion à Docker Hub
-        script {
-            docker.withRegistry('https://index.docker.io/v1/', 'DockerHubCredentials') {
-                bat 'docker push amalseghaier/exam:latest'
+         steps {
+            // Connexion à Docker Hub et pousser l'image
+            script {
+                  docker.withRegistry('https://index.docker.io/v1/', 'DockerHubCredentials') {
+                     bat 'docker login -u VOTRE_NOM_UTILISATEUR_DOCKER_HUB -p VOTRE_TOKEN_OU_MDP'
+                     bat 'docker push amalseghaier/exam:latest'
             }
         }
     }
 }
-
 
         stage('Build and Run Docker Container') {
             steps {
