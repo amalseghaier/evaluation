@@ -33,7 +33,7 @@ pipeline {
             // Connexion à Docker Hub et pousser l'image
             script {
                   docker.withRegistry('https://index.docker.io/v1/', 'DockerHubCredentials') {
-                     bat 'docker login -u VOTRE_NOM_UTILISATEUR_DOCKER_HUB -p VOTRE_TOKEN_OU_MDP'
+                     bat 'docker login -u amalseghaier -p 09715640@amal'
                      bat 'docker push amalseghaier/exam:latest'
             }
         }
