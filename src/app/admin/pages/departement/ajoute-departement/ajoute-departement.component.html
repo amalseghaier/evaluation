@@ -17,7 +17,8 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form #f="ngForm" (ngSubmit)="add(f)">
+                            
                             <div class="row">
                                 <div class="col-12">
                                     <h5 class="form-title"><span> Details</span></h5>
@@ -25,26 +26,21 @@
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label> ID Department <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" required [(ngModel)]="departement.id" name="id">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Nom <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" required [(ngModel)]="departement.nom" name="nom">
                                     </div>
                                 </div>
                                
                                 
-                                <div class="col-12 col-sm-4">
-                                    <div class="form-group local-forms">
-                                        <label>ID classe<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
+                               
                                 <div class="col-12">
                                     <div class="student-submit">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button  class="btn btn-primary" [disabled]="f.invalid">Submit</button>
                                     </div>
                                 </div>
                             </div>

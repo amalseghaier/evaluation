@@ -1,22 +1,25 @@
 <app-header></app-header>
+
 <section>
   <div class="form-box">
-      <div class="form-value">
-          <form>
-              <h2>Se connecter</h2>
-              <div class="inputbox">  <input type="text" id="cinInput" class="form-control" [(ngModel)]="cin" name="cin" maxlength="8" required />
-
-                  <label>CIN</label>
-              </div>
-              <div class="inputbox">    <input type="password" id="passwordInput" class="form-control" [(ngModel)]="password" name="password" required /> <label>Mot de passe</label> </div>
-              <button type="button" (click)="connecter()">Se connecter</button>
-
-                      <a class="text-muted login-link" href="#!">Mot de passe oublié?</a>
-                      <div *ngIf="errorMessage" class="error-message">
-                        {{ errorMessage }}
-                      </div>
-          </form>
-      </div>
+    <div class="form-value">
+      <h2>Se connecter</h2>
+      <button type="button" (click)="selectTypeUtilisateur('etudiant')">Étudiant</button>
+      <button type="button" (click)="selectTypeUtilisateur('enseignant')">Enseignant</button>
+      <form #f="ngForm" (ngSubmit)="connecter(f)">
+        <div *ngIf=" type_utilisateur === 'etudiant'">
+          <input type="text" [(ngModel)]="cin" name="cin" placeholder="CIN" required>
+          <input type="password" [(ngModel)]="mot_de_passe" name="mot_de_passe" placeholder="Mot de passe" required>
+        </div>
+        <div *ngIf=" type_utilisateur === 'enseignant'">
+          <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+          <input type="password" [(ngModel)]="mot_de_passe" name="mot_de_passe" placeholder="Mot de passe" required>
+        </div>
+        <button type="submit" >Se connecter</button>
+      </form>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </div>
   </div>
-</section> 
+</section>
+
 <app-footer></app-footer>

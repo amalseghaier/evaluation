@@ -16,22 +16,28 @@
 
   <!-- Formulaire de question -->
   <div class="question-container">
-    <form #f="ngForm" (submit)="ajoutQuestion(f)">
+    <form #f="ngForm" (submit)="add(f)">
       <div class="form-group">
-        <label for="titre">id_examen :</label>
-        <input type="text" class="form-control" id="id_examen" required [(ngModel)]="question.id_examen" name="id_examen">
+        <label for="id_examen">Choisir un examen :</label>
+        <select class="form-control" id="id_examen" required [(ngModel)]="question.id_examen" name="id_examen">
+          <option *ngFor="let examen of examens" [value]="examen.id">{{ examen.titre }} - {{ examen.type_examen }}</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="titre">Titre :</label>
-        <input type="text" class="form-control" id="titre"required [(ngModel)]="question.titre" name="titre">
+        <input type="text" class="form-control" id="titre" required [(ngModel)]="question.titre" name="titre">
       </div>
       <div class="form-group">
         <label for="type">Type :</label>
-        <select class="form-control" id="type"required [(ngModel)]="question.type" name="type">
+        <select class="form-control" id="type" required [(ngModel)]="question.type" name="type">
           <option value="choix_unique">Choix unique</option>
           <option value="choix_multiple">Choix multiple</option>
           <option value="vrai_faux">Vrai/Faux</option>
         </select>
+      </div>
+      <div class="form-group">
+        <label for="contenuQuestion">Contenu de la question :</label>
+        <textarea class="form-control" id="contenuQuestion" [(ngModel)]="question.contenuQuestion" name="contenuQuestion"></textarea>
       </div>
       <div class="form-group" *ngIf="question.type === 'choix_unique' || question.type === 'choix_multiple' || question.type === 'vrai_faux'">
         <label>Options :</label>
@@ -45,17 +51,14 @@
         </div>
         <button type="button" class="btn btn-success mt-2" (click)="addOption()">Ajouter une option</button>
       </div>
-      
       <div class="form-group">
         <label for="reponseCorrecte">Réponse Correcte :</label>
-        <input type="text" class="form-control" id="reponseCorrecte"required [(ngModel)]="question.reponse_correcte" name="reponseCorrecte">
+        <input type="text" class="form-control" id="reponseCorrecte" required [(ngModel)]="question.reponse_correcte" name="reponseCorrecte">
       </div>
       <div class="form-group">
-        <label for="number">Point :</label>
-        <input type="text" class="form-control" id="point"required [(ngModel)]="question.point" name="point">
+        <label for="point">Point :</label>
+        <input type="number" class="form-control" id="point" required [(ngModel)]="question.points" name="point">
       </div>
-      
-
       <!-- Bouton pour soumettre toutes les questions -->
       <button type="submit" class="btn btn-success mt-2" [disabled]="f.invalid">Ajoute question</button>
     </form>

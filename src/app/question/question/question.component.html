@@ -53,17 +53,18 @@
                                 </td>
                                 <td>
                                     <h2>
-                                        <a>{{item.options}}</a>
+                                        <ng-container *ngIf="item.type === 'single-choice'">
+                                            <label *ngFor="let option of item.options.split(',')">
+                                                <input type="radio" [value]="option">{{ option }}
+                                            </label>
+                                        </ng-container>
+                                        <ng-container *ngIf="item.type === 'multiple-choice'">
+                                            <label *ngFor="let option of item.options.split(',')">
+                                                <input type="checkbox" [value]="option">{{ option }}
+                                            </label>
+                                        </ng-container>
                                     </h2>
-                                    <!-- <div class="radio" *ngIf="item.type === 'choix_unique'">
-                                        <label><input type="radio" name="radio"> Option 1</label>
-                                    </div>
-                                    <div class="checkbox" *ngIf="item.type === 'choix_multiple'">
-                                        <label><input type="checkbox" name="checkbox"> Option 1</label>
-                                    </div>
-                                    <div class="radio" *ngIf="item.type === 'vrai_faux'">
-                                        <label><input type="radio" name="radio"> Vrai</label>
-                                    </div> -->
+                                    
                                 </td>
                                 <td class="sorting_1">
                                     <h2>

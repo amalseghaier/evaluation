@@ -45,7 +45,7 @@ const routes: Routes = [
      component:DepartementComponent},
      {path:'ajdepartement',component:AjouteDepartementComponent},
      {path:'ajoute',component:AjouteEtudiantComponent},
-     {path:'Classes', component:ClasseComponent},
+     {path:'classe', component:ClasseComponent},
      {path:'ajoutes',component:AjouteClasseComponent}
     ],
   },
