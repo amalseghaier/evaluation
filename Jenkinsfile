@@ -31,7 +31,7 @@ pipeline {
                 // Utiliser un conteneur Docker pour construire et exécuter le conteneur
                 script {
                     // Exécuter le conteneur Docker
-                    bat "docker run -d -p 8333:80 --name evaluation_container amalseghaier/evaluation:latest"
+                    bat "docker run -d -p 8443:82 --name evaluation_container amalseghaier/evaluation:latest"
                 }
             }
         }
