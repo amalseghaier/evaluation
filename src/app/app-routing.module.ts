@@ -11,6 +11,7 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
 import { QuestionComponent } from './question/question/question.component';
 import { AjouteExamenComponent } from './examen/ajoute-examen/ajoute-examen.component';
 import { AjouteQuestionComponent } from './question/ajoute-question/ajoute-question.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 
 
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path:'ajoutesquestion',component:AjouteQuestionComponent},
 
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  
+  {path:'admin/login',component:AdminloginComponent}
+ 
   
 
  

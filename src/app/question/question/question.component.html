@@ -35,7 +35,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of dataArray">
+                            <tr *ngFor="let item of dataArray; let i = index">
                                 <td class="sorting_1">
                                     <h2>
                                         <a>{{item.id_examen}}</a>
@@ -53,16 +53,7 @@
                                 </td>
                                 <td>
                                     <h2>
-                                        <ng-container *ngIf="item.type === 'single-choice'">
-                                            <label *ngFor="let option of item.options.split(',')">
-                                                <input type="radio" [value]="option">{{ option }}
-                                            </label>
-                                        </ng-container>
-                                        <ng-container *ngIf="item.type === 'multiple-choice'">
-                                            <label *ngFor="let option of item.options.split(',')">
-                                                <input type="checkbox" [value]="option">{{ option }}
-                                            </label>
-                                        </ng-container>
+                                       {{item.options}}
                                     </h2>
                                     
                                 </td>
@@ -83,8 +74,8 @@
                                     <a href="edit-exam.html" class="btn btn-sm bg-danger-light">
                                         <i class="feather-edit"></i>
                                     </a>
-                                    <a class="btn btn-sm btn-danger" >
-                                        <i class="feather-trash-2"></i>
+                                    <a class="btn btn-sm btn-white text-danger"(click)="deleteQuestion(item.id, i)" >
+                                        <i class="far fa-trash-alt me-1"></i>
                                     </a>
                                 </td>
                             </tr>

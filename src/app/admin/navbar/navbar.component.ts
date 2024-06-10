@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthadminService } from 'src/app/service/authadmin.service';
 
 
 
@@ -9,5 +10,10 @@ import { Component } from '@angular/core';
   
 })
 export class NavbarComponent {
+  nom:any
+  constructor(private asd:AuthadminService){
+    this.nom=this.asd.ProfilAdmin.nom
+
+  }
  
 }

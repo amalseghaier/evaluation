@@ -9,21 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  cin: string = '';
   email: string = '';
   mot_de_passe: string = '';
-  type_utilisateur: string = '';
   errorMessage: string = '';
 
   constructor(private authuserService: AuthuserService, private router: Router) {}
 
-  selectTypeUtilisateur(type: string) {
-    this. type_utilisateur = type;
-  }
-
-  connecter(f: NgForm) {
-    if (this. type_utilisateur === 'etudiant') {
-      this.authuserService.login(this.cin, this.mot_de_passe).subscribe(
+  connecter(form: NgForm) {
+    if (form.valid) {
+      this.authuserService.login(form.value.email, form.value.mot_de_passe).subscribe(
         (response: any) => {
           this.handleLoginResponse(response);
         },
@@ -35,44 +29,25 @@ export class LoginComponent {
           }
         }
       );
-    } else if (this. type_utilisateur === 'enseignant') {
-      this.authuserService.login(this.email, this.mot_de_passe).subscribe(
-        (response: any) => {
-          this.handleLoginResponse(response);
-        },
-        (error: any) => {
-          if (error.status === 400) {
-            this.errorMessage = 'Identifiants invalides. Veuillez réessayer.';
-          } else {
-            this.errorMessage = 'Erreur de connexion: ' + error.message;
-          }
-        }
-      );
+    } else {
+      this.errorMessage = 'Veuillez remplir tous les champs du formulaire.';
     }
   }
 
   private handleLoginResponse(response: any) {
     if (response && response.token) {
-      const token = response.token;
-      const decodedToken = this.decodeToken(token);
-      if (decodedToken && decodedToken.type_utilisateur) {
-        if (decodedToken.type_utilisateur === 'etudiant') {
-          this.router.navigate(['/etudiant']);
-        } else if (decodedToken.type_utilisateur === 'enseignant') {
-          this.router.navigate(['/enseignant']);
-        } else {
-          // Gérer d'autres types d'utilisateurs si nécessaire
-        }
+      localStorage.setItem('token', response.token);
+      localStorage.setItem('type_utilisateur', response.type_utilisateur);
+      const type_utilisateur = response.type_utilisateur;
+      if (type_utilisateur === 'etudiant') {
+        this.router.navigate(['/etudiant']);
+      } else if (type_utilisateur === 'enseignant') {
+        this.router.navigate(['/enseignant']);
+      } else {
+        // Gérer d'autres types d'utilisateurs si nécessaire
       }
-    }
-  }
-
-  private decodeToken(token: string): any {
-    try {
-      return JSON.parse(atob(token.split('.')[1]));
-    } catch (error) {
-      console.error('Erreur de décodage du token :', error);
-      return null;
+    } else {
+      this.errorMessage = 'Réponse de connexion invalide.';
     }
   }
 }

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthuserService } from '../service/authuser.service';
+// Define a simple type inline for User
+type User = any; // You can use 'any' as a placeholder for now
 
 @Component({
   selector: 'app-etudiant',
@@ -6,15 +9,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./etudiant.component.css']
 })
 export class EtudiantComponent {
-  nom: string = '';
-  departement: string = '';
-  telephone: string = '';
-  email: string = 'example@gmail.com';
-  genre: string = 'Male'; // ou 'Female' selon votre cas
-  dateNaissance: string = '';
-  enregistrerModifications() {
-    // Vous pouvez traiter ici la sauvegarde des modifications dans votre application
-    console.log('Modifications enregistrées :', this.nom, this.departement, this.telephone, this.email, this.genre, this.dateNaissance);
+ 
+  user: User | undefined;
+
+  constructor(private authService: AuthuserService) { }
+
+  ngOnInit(): void {
+    this.getUserDetails(1); // Replace '1' with the actual user ID you want to retrieve
+  }
+
+  getUserDetails(userId: number): void {
+    this.authService.getUserById(userId).subscribe(
+      (data: any) => {
+        this.user = data;
+      },
+      (error) => {
+        console.error('Error retrieving user:', error);
+      }
+    );
   }
 }
  

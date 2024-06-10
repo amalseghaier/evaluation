@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,7 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
 import { QuestionComponent } from './question/question/question.component';
 import { AjouteExamenComponent } from './examen/ajoute-examen/ajoute-examen.component';
 import { AjouteQuestionComponent } from './question/ajoute-question/ajoute-question.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
 
 
 
@@ -38,7 +40,8 @@ import { AjouteQuestionComponent } from './question/ajoute-question/ajoute-quest
     EtudiantComponent,
     QuestionComponent,
     AjouteExamenComponent,
-    AjouteQuestionComponent
+    AjouteQuestionComponent,
+    AdminloginComponent
    
   ],
   imports: [
@@ -48,9 +51,10 @@ import { AjouteQuestionComponent } from './question/ajoute-question/ajoute-quest
     BrowserAnimationsModule,
     MatListModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

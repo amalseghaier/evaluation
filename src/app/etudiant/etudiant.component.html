@@ -76,79 +76,70 @@
         </div>
         <div class="row">
             <div class="col-lg-4">
-                
-                        <div class="student-personals-grp">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="heading-detail">
-                                        <h4>Personal Details :</h4>
-                                    </div>
-                                    <div class="personal-activity">
-                                        <div class="personal-icons">
-                                            <i class="feather-user"></i>
-                                        </div>
-                                        <div class="views-personal">
-                                            <h4>Nom</h4>
-                                            <h5>Joe Kelley</h5>
-                                        </div>
-                                    </div>
-                                    <div class="personal-activity">
-                                        <div class="personal-icons">
-                                            <i class="feather-user"></i>
-                                        </div>
-                                        <div class="views-personal">
-                                            <h4>Prenom</h4>
-                                            <h5>Joe Kelley</h5>
-                                        </div>
-                                    </div>
-                                   
-                                   
-                                    <div class="personal-activity">
-                                        <div class="personal-icons">
-                                            <i class="feather-mail"></i>
-                                        </div>
-                                        <div class="views-personal">
-                                            <h4>Email</h4>
-                                            <h5>joe@gmail.com</h5>
-                                        </div>
-                                    </div>
-                                    <div class="personal-activity">
-                                        <div class="personal-icons">
-                                            <i class="feather-user"></i>
-                                        </div>
-                                        <div class="views-personal">
-                                            <h4>CIN</h4>
-                                            <h5>0000000</h5>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="personal-activity">
-                                        <div class="personal-icons">
-                                                  
-                                    <i class="fas fa-book-reader"></i>
-                                        </div>
-                                        <div class="views-personal">
-                                            <h4>Classe</h4>
-                                            <h5>Ti12</h5>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="personal-activity">
-                                        <div class="personal-icons">
-                                            <img src="../../assets/assets/img/icons/buliding-icon.svg" alt="">
-                                        </div>
-                                        <div class="views-personal">
-                                            <h4>Department </h4>
-                                            <h5>informatique</h5>
-                                        </div>
-                                    </div>
-                              
-                                </div>
-                            </div>
-                        
+                <div class="student-personals-grp">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="heading-detail">
+                        <h4>Détails personnels:</h4>
+                      </div>
+                      <div class="personal-activity">
+                        <div class="personal-icons">
+                          <i class="feather-user"></i>
+                        </div>
+                        <div class="views-personal">
+                          <h4>Nom</h4>
+                          <h5>{{ user?.nom }}</h5>
+                        </div>
+                      </div>
+                      <div class="personal-activity">
+                        <div class="personal-icons">
+                          <i class="feather-user"></i>
+                        </div>
+                        <div class="views-personal">
+                          <h4>Prénom</h4>
+                          <h5>{{ user?.prenom }}</h5>
+                        </div>
+                      </div>
+                      <div class="personal-activity">
+                        <div class="personal-icons">
+                          <i class="feather-mail"></i>
+                        </div>
+                        <div class="views-personal">
+                          <h4>Email</h4>
+                          <h5>{{ user?.email }}</h5>
+                        </div>
+                      </div>
+                      <div class="personal-activity">
+                        <div class="personal-icons">
+                          <i class="feather-user"></i>
+                        </div>
+                        <div class="views-personal">
+                          <h4>CIN</h4>
+                          <h5>{{ user?.cin }}</h5>
+                        </div>
+                      </div>
+                      <div class="personal-activity">
+                        <div class="personal-icons">
+                          <i class="fas fa-book-reader"></i>
+                        </div>
+                        <div class="views-personal">
+                          <h4>Classe</h4>
+                          <h5>{{ user?.classe }}</h5>
+                        </div>
+                      </div>
+                      <div class="personal-activity">
+                        <div class="personal-icons">
+                          <img src="../../assets/assets/img/icons/buliding-icon.svg" alt="">
+                        </div>
+                        <div class="views-personal">
+                          <h4>Département</h4>
+                          <h5>{{ user?.departement }}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                
-            </div>
+              </div>
             <div class="col-lg-8">
                 <div class="student-personals-grp">
                     <div class="card mb-0">

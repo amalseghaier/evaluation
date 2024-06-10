@@ -3,19 +3,18 @@
 <section>
   <div class="form-box">
     <div class="form-value">
-      <h2>Se connecter</h2>
-      <button type="button" (click)="selectTypeUtilisateur('etudiant')">Étudiant</button>
-      <button type="button" (click)="selectTypeUtilisateur('enseignant')">Enseignant</button>
+      <div class="card-header">
+        <h2>Se connecter</h2>
+      </div>
       <form #f="ngForm" (ngSubmit)="connecter(f)">
-        <div *ngIf=" type_utilisateur === 'etudiant'">
-          <input type="text" [(ngModel)]="cin" name="cin" placeholder="CIN" required>
-          <input type="password" [(ngModel)]="mot_de_passe" name="mot_de_passe" placeholder="Mot de passe" required>
-        </div>
-        <div *ngIf=" type_utilisateur === 'enseignant'">
+        <div class="input-group">
           <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+
+        </div>
+        <div class="input-group">
           <input type="password" [(ngModel)]="mot_de_passe" name="mot_de_passe" placeholder="Mot de passe" required>
         </div>
-        <button type="submit" >Se connecter</button>
+        <button type="submit">Se connecter</button>
       </form>
       <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     </div>

@@ -130,34 +130,33 @@
                     <img src="../../../assets/assets/img/icons/header-icon-04.svg" alt>
                 </a>
             </li>
-
             <li class="nav-item dropdown has-arrow new-user-menus">
-                <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
-                    <div class="user-img">
-                        <img class="rounded-circle" src="" width="31"
-                            alt="Ryan Taylor">
-                        <div class="user-text">
-                            <h6>Amal seghaier</h6>
-                            <p class="text-muted mb-0">Administrateur</p>
-                        </div>
-                    </div>
-                </a>
-                <div class="dropdown-menu">
-                    <div class="user-header">
-                        <div class="avatar avatar-sm">
-                            <img src="" alt="User Image"
-                                class="avatar-img rounded-circle">
-                        </div>
-                        <div class="user-text">
-                            <h6>Amal seghaier</h6>
-                            <p class="text-muted mb-0">Administrateur</p>
-                        </div>
-                    </div>
-                    <a class="dropdown-item" routerLink="/admin/profile">Profile</a>
-                    <a class="dropdown-item" href="inbox.html">Inbox</a>
-                    <a class="dropdown-item" routerLink="home">déconnexion</a>
+                <a href="#" class="dropdown-toggle nav-link show" data-bs-toggle="dropdown" aria-expanded="true">
+                <div class="user-img">
+                <img class="rounded-circle" src="../../../assets/img/télécharger.png" width="31" alt="Ryan Taylor">
+                <div class="user-text">
+                <h6>{{nom}}</h6>
+                <p class="text-muted mb-0">Administrateur</p>
                 </div>
-            </li>
+                </div>
+                </a>
+                <div class="dropdown-menu show" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 62.4px, 0px);">
+                <div class="user-header">
+                <div class="avatar avatar-sm">
+                <img src="../../../assets/img/télécharger.png" alt="User Image" class="avatar-img rounded-circle">
+                </div>
+                <div class="user-text">
+                <h6>{{nom}}</h6>
+                <p class="text-muted mb-0">Administrateur</p>
+                </div>
+                </div>
+                <a class="dropdown-item" routerLink="/admin/profile">Profile</a>
+                <a class="dropdown-item" href="inbox.html">Inbox</a>
+                <a class="dropdown-item" href="login.html">déconnexion</a>
+                </div>
+                </li>
+
+            
 
         </ul>
 

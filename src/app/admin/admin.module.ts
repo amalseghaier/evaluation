@@ -12,7 +12,6 @@ import { EtudiantComponent } from './pages/etudiant/etudiant/etudiant.component'
 import { EnseignantComponent } from './pages/ensignant/enseignant/enseignant.component';
 import { DepartementComponent } from './pages/departement/departement/departement.component';
 
-import { ListeexamenComponent } from './pages/listeexamen/listeexamen.component';
 import { RouterModule, Routes  } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AjouteEnseignantComponent } from './pages/ensignant/ajoute-enseignant/ajoute-enseignant.component';
@@ -21,6 +20,10 @@ import { AjouteDepartementComponent } from './pages/departement/ajoute-departeme
 import { ProfileAdminComponent } from './profile-admin/profile-admin.component';
 import { ClasseComponent } from './pages/classe/classe/classe.component';
 import { AjouteClasseComponent } from './pages/classe/ajoute-classe/ajoute-classe.component';
+import { ExamenComponent } from './pages/examen/examen.component';
+
+
+
 
 
 @NgModule({
@@ -31,7 +34,6 @@ import { AjouteClasseComponent } from './pages/classe/ajoute-classe/ajoute-class
     EtudiantComponent,
     EnseignantComponent,
     DepartementComponent,
-    ListeexamenComponent,
     DashboardComponent,
     AjouteEnseignantComponent,
     AjouteEtudiantComponent,
@@ -39,6 +41,11 @@ import { AjouteClasseComponent } from './pages/classe/ajoute-classe/ajoute-class
     ProfileAdminComponent,
     ClasseComponent,
     AjouteClasseComponent,
+    ExamenComponent,
+  
+    
+  
+   
     
    
   ],

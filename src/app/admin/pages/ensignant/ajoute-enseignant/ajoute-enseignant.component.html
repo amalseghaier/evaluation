@@ -26,59 +26,69 @@
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label> ID Enseignant <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Enseignant ID"required [(ngModel)]="enseginant.id" name="id">
-                                    </div>
-                                </div>
-                              
-                                <div class="col-12 col-sm-4">
-                                    <div class="form-group local-forms">
-                                        <label>Nom<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Enter Nom"required [(ngModel)]="enseginant.nom" name="nom">
+                                        <input type="text" class="form-control" placeholder="Enseignant ID"required [(ngModel)]="utilisateur.id" name="id">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>Premon<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Enter Nom"required [(ngModel)]="enseginant.premon" name="premon">
+                                        <label>Nom <span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder="Enter Nom" required [(ngModel)]="utilisateur.nom" name="nom">
                                     </div>
                                 </div>
+                                
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>Email<span class="login-danger">*</span></label>
-                                        <input type="email" class="form-control" placeholder="nom@example.com" required [(ngModel)]="enseginant.email" name="email">
+                                        <label>Prénom <span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder="Enter Prénom" required [(ngModel)]="utilisateur.prenom" name="prenom">
                                     </div>
                                 </div>
-                               
+                                
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>Mot_de_passe<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Mot_de_passe"required [(ngModel)]="enseginant.mot_de_passe" name="mot_de_passe">
+                                        <label>Email <span class="login-danger">*</span></label>
+                                        <input type="email" class="form-control" placeholder="nom@example.com" required [(ngModel)]="utilisateur.email" name="email">
                                     </div>
                                 </div>
+                                
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>CIN<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Enter cin"required [(ngModel)]="enseginant.cin" name="cin">
+                                        <label>Mot de passe <span class="login-danger">*</span></label>
+                                        <input type="password" class="form-control" placeholder="Mot de passe" required [(ngModel)]="utilisateur.mot_de_passe" name="mot_de_passe">
                                     </div>
                                 </div>
+                                
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>type utilisateur<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Enter Nom"required [(ngModel)]="enseginant.nom" name="nom">
+                                        <label>CIN <span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder="Enter CIN" required [(ngModel)]="utilisateur.cin" name="cin">
                                     </div>
                                 </div>
+                                
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>Nom de la Classe <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Entrez le Nom de la Classe" required [(ngModel)]="enseignant.nom_classe" name="nom_classe">
+                                        <label>Type Utilisateur <span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder="Enter Type Utilisateur" required [(ngModel)]="utilisateur.type_utilisateur" name="type_utilisateur">
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-4">
-                                    <div class="form-group local-forms">
-                                        <label>Nom du Département <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" placeholder="Entrez le Nom du Département" required [(ngModel)]="enseignant.nom_departement" name="nom_departement">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6">
+                                      <div class="form-group">
+                                        <label for="id_classe">Classe</label>
+                                        <select class="form-control" id="id_classe" required [(ngModel)]="selectedClasse" name="id_classe">
+                                          <option *ngFor="let classe of classes" [ngValue]="classe.id">{{ classe.nom }}</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                      <div class="form-group">
+                                        <label for="id_departement">Département</label>
+                                        <select class="form-control" id="id_departement" required [(ngModel)]="selectedDepartement" name="id_departement">
+                                          <option *ngFor="let departement of departements" [ngValue]="departement.id">{{ departement.nom }}</option>
+                                        </select>
+                                      </div>
                                     </div>
                                 </div>
+                                  
                                 
                                 <!-- <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
@@ -193,10 +203,11 @@
                                     </div>
                                 </div> -->
                                 <div class="col-12">
-                                    <div class="student-submit">
-                                        <button  class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+                                    <div class="student-submit text-center mt-3">
+                                      <button class="btn btn-primary" [disabled]="f.invalid">soumettre</button>
                                     </div>
-                                </div>
+                                  </div>
+                                  
                             </div>
                         </form>
                     </div>

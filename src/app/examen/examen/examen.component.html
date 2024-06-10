@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <div class="student-personals-grp">
     <div class="card mb-0">
         <div class="card-body">
@@ -35,15 +35,17 @@
                                 <thead class="student-thread">
                                     <tr>
                                         <th class="sorting sorting_asc" tabindex="0"
+                                        aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+                                        aria-sort="ascending"
+                                        aria-label="Exam Name: activate to sort column descending"
+                                        style="width: 143.738px;">ID</th>
+                                        <th class="sorting sorting_asc" tabindex="0"
                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                             aria-sort="ascending"
                                             aria-label="Exam Name: activate to sort column descending"
                                             style="width: 143.738px;">titre</th>
                                         
-                                        <th class="sorting" tabindex="0"
-                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                            aria-label="Subject: activate to sort column ascending"
-                                            style="width: 127.9px;">description</th>
+                                    
                                         <th class="sorting" tabindex="0"
                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                             aria-label="Start Time: activate to sort column ascending"
@@ -51,11 +53,8 @@
                                         <th class="sorting" tabindex="0"
                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                             aria-label="End Time: activate to sort column ascending"
-                                            style="width: 111.775px;">date_debut</th>
-                                        <th class="sorting" tabindex="0"
-                                            aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
-                                            aria-label="Date: activate to sort column ascending"
-                                            style="width: 122.812px;">Heure</th>
+                                            style="width: 111.775px;">date_fin</th>
+                                
                                             <th class="sorting" tabindex="0"
                                             aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
                                             aria-label="Subject: activate to sort column ascending"
@@ -75,18 +74,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="odd" *ngFor="let item of dataArray">
+                                    <tr class="odd" *ngFor="let item of dataArray; let i = index">
+                                        <td class="sorting_1">
+                                            <h2>
+                                                <a>{{item.id}}</a>
+                                            </h2>
+                                        </td>
                                         <td class="sorting_1">
                                             <h2>
                                                 <a>{{item.titre}}</a>
                                             </h2>
                                         </td>
-                                        <td>{{item.description}}</td>
+                                      
                                         <td>{{item.date_debut}}</td>
                                         <td>{{item.date_fin}}</td>
-                                        <td>{{item.heure}}</td>
+                                      
                                         <td>{{item.type_examen}}</td>
                                         <td>{{item.duree}}</td>
+                                        <td>{{item.id_classe}}</td>
+                                        
                                         <!-- <td>
                                             <ng-container *ngFor="let classe of classes">
                                               {{ classe.nom_classe }}
@@ -100,11 +106,15 @@
                                                 <a href="edit-exam.html" class="btn btn-sm bg-danger-light">
                                                     <i class="feather-edit"></i>
                                                 </a>
-                                                <a class="btn btn-sm btn-white text-danger" href="#" data-bs-toggle="modal" data-bs-target="#delete_paid">
+                                                <a class="btn btn-sm btn-white text-danger"(click)="deleteExamen(item.id, i)" >
                                                     <i class="far fa-trash-alt me-1"></i>
                                                 </a>
                                             </div>
+                                            <button (click)="passerExamen(examen)">Passer l'examen</button>
                                         </td>
+                                        <td>
+                                            
+                                          </td>
                                         
                                         
                                     </tr>
@@ -136,4 +146,5 @@
          </div>
      </div>
  </div>
+<app-footer></app-footer>
  

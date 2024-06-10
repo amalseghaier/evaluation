@@ -1,7 +1,7 @@
 <div class="page-wrapper" style="min-height: 646px;">
     <div class="content container-fluid">
 
-        <div class="page-header">
+        <div class="page-">
             <div class="row align-items-center">
                 <div class="col">
                     <h3 class="page-title">Ajoute Classe</h3>
@@ -36,14 +36,23 @@
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>Department <span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" required [(ngModel)]="classe.departementId" name="departementId">
+                                        <label>Niveau<span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" required [(ngModel)]="classe.niveau" name="niveau">
+                                    </div>
+                                </div>
+                               
+                                <div class="col-12 col-sm-4">
+                                    <div class="form-group">
+                                      <label for="id_departement">Département</label>
+                                      <select class="form-control" id="id_departement" required [(ngModel)]="selectedDepartement" name="id_departement">
+                                        <option *ngFor="let departement of departements" [ngValue]="departement.id">{{ departement.nom }}</option>
+                                      </select>
                                     </div>
                                 </div>
                                 
-                                <div class="col-12">
+                                  <div class="col-12">
                                     <div class="student-submit">
-                                        <button  class="btn btn-primary"[disabled]="f.invalid">Submit</button>
+                                        <button  class="btn btn-primary" [disabled]="f.invalid">Submit</button>
                                     </div>
                                 </div>
                             </div>

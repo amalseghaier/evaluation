@@ -28,5 +28,17 @@
     cursor: pointer;
   }
   
+  
+  /* Ajoute un espacement entre chaque question */
+.question-container form > div {
+  margin-bottom: 20px;
+}
+
+/* Ajoute une bordure autour de chaque question */
+.question-container form > div {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
   /* Ajoutez d'autres styles selon vos besoins */
   

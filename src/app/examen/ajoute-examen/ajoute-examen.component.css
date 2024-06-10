@@ -16,4 +16,67 @@ button[type="submit"] {
     margin-left: 15px;
 }
 
-  
+.custom-select {
+    position: relative;
+}
+
+.custom-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding-right: 30px; /* espace pour la flèche */
+    /* Autres styles de votre choix */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #000; /* Couleur de la flèche */
+}
+/* Style du sélecteur de classe avec cercles à cocher */
+.form-group select[multiple] {
+    /* Styles généraux du sélecteur de classe */
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Pour inclure le padding dans la largeur */
+}
+
+/* Style des options du sélecteur de classe */
+.form-group select[multiple] option {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+}
+
+/* Style du cercle à cocher */
+.form-group select[multiple] option input[type="checkbox"] {
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+/* Style du texte de la classe */
+.form-group select[multiple] option span {
+    flex: 1;
+}
+
+/* Style lorsque la case à cocher est cochée */
+.form-group select[multiple] option input[type="checkbox"]:checked + span {
+    font-weight: bold;
+    color: #2196f3; /* Couleur du texte en cas de sélection */
+}
+

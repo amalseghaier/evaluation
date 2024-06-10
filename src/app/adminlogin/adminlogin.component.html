@@ -1,0 +1,47 @@
+<div class="main-wrapper login-body">
+    <div class="login-wrapper">
+    <div class="container">
+    <div class="loginbox">
+    <div class="login-left">
+  
+    </div>
+    <div class="login-right">
+    <div class="login-right-wrap">
+    <h1>Welcome Admin</h1>
+
+    <h2>Se connecter</h2>
+    
+    <form action="index.html" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    
+    <div class="form-group">
+    <label>Email <span class="login-danger">*</span></label>
+    <input class="form-control"  id="exampleInputEmail" aria-describedby="emailHelp"
+    placeholder="Enter Email Address..." name="email" #email="ngModel" ngModel>
+    <span class="profile-views"><i class="fas fa-user-circle"></i></span>
+    </div>
+    <div class="form-group">
+    <label>Mot de passe <span class="login-danger">*</span></label>
+    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="mot_de_passe" #mot_de_passe="ngModel" ngModel>
+    <span class="profile-views feather-eye toggle-password"></span>
+    </div>
+    <div class="forgotpass">
+        <div class="alert alert-danger" *ngIf="messageAuthError">
+            {{messageAuthError}}
+        </div>
+  
+    </div>
+    <div class="form-group">
+    <button class="btn btn-primary btn-block" type="submit">Se connecter</button>
+    </div>
+    </form>
+    
+    
+    
+  
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
