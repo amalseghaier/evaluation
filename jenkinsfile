@@ -14,21 +14,16 @@ pipeline {
                 }
             }
         }
-
-        stage('Build  Docker Image') {
+        stage('Build Docker Image') {
             steps {
-                // Utiliser un conteneur Docker pour construire et renommer l'image
                 script {
                     // Construire l'image Docker (ajustez la commande selon vos besoins)
                     bat 'docker build -t amalseghaier/evaluationss:latest .'
-
                 }
             }
         }
-
         stage('Build and Run Docker Container') {
             steps {
-                // Utiliser un conteneur Docker pour construire et exécuter le conteneur
                 script {
                     // Exécuter le conteneur Docker
                     bat "docker run -d -p 8444:83 --name evaluationss_container amalseghaier/evaluationss:latest"
